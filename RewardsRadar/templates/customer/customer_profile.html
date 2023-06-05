@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Customer Profile</h2>
+  <div class="profile-info">
+    <p><strong>Name:</strong> {{ customer.name }}</p>
+    <p><strong>Email:</strong> {{ customer.email }}</p>
+    <p><strong>Points:</strong> {{ customer.points }}</p>
+  </div>
+{% endblock %}

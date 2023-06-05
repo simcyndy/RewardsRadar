@@ -1,0 +1,148 @@
+/* General Styling */
+
+body {
+  font-family: 'Futura', sans-serif;
+  background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+  color: white;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hero Section */
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+.hero h1 {
+  font-size: 2.5em;
+  animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: #00d4ff;
+  color: #020024;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.5s;
+}
+
+.cta-button:hover {
+  background: #090979;
+}
+
+/* Introduction Section */
+
+.introduction {
+  padding: 60px 0;
+  text-align: center;
+}
+
+/* Features Section */
+
+.features {
+  background: rgba(0,0,0,0.1);
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  text-align: center;
+}
+
+.features i {
+  font-size: 4em;
+  margin-bottom: 20px;
+  color: #00d4ff;
+}
+
+/* Testimonials Section */
+
+.testimonials {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.testimonial {
+  font-style: italic;
+}
+
+/* Call to Action Section */
+
+.cta {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product-item {
+  width: 300px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.product-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product-description {
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.buy-button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.buy-button:hover {
+  background-color: #0056b3;
+}

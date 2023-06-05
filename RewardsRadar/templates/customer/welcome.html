@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Welcome, {{ customer.name }}!</h2>
+  <p>You've successfully registered and been added to the Basic subscription tier! You've been awarded {{ points_earned }} points. 
+    Your total points are now {{ customer.points }}.</p>
+  <a href="{% url 'products' %}">Shop Now</a>
+{% endblock %}

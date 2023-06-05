@@ -1,0 +1,16 @@
+<!-- product.html -->
+{% extends 'home.html' %}
+
+{% block content %}
+<section class="product">
+    <div class="container">
+        <h2>Product Details</h2>
+        <div class="product-info">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.description }}</p>
+            <p>Price: ${{ product.price }}</p>
+            <p>Category: {{ product.category }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

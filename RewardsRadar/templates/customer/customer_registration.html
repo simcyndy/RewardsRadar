@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Customer Registration</h2>
+  {% if error_message %}
+    <p class="error">{{ error_message }}</p>
+  {% endif %}
+  <form method="post" action="{% url 'customer_registration' %}">
+    {% csrf_token %}
+    {{ form.name.label_tag }}
+    {{ form.name }}
+    {{ form.email.label_tag }}
+    {{ form.email }}
+    <button type="submit">Register</button>
+  </form>
+{% endblock %}
+

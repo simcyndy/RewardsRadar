@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Rewards Radar</h1>
+            <p>Unlock the future of rewards, earn points, and access exclusive offers!</p>
+            <a href="{% url 'customer_registration' %}" class="cta-button">Engage Now</a>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="introduction">
+        <div class="container">
+            <h2>The Future is Rewards Radar</h2>
+            <p>Step into a world where every purchase fuels your journey. With Rewards Radar, your points turn into your passport to exclusive benefits.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Portal to Benefits</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Earn Points with Every Purchase</h3>
+                    <p>Transact with our futuristic platform and earn your ticket to exclusivity.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-gift"></i>
+                    <h3>Redeem Points for Exclusive Rewards</h3>
+                    <p>Unlock unique offers, discounts, and freebies designed for our esteemed members.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Track & Manage Your Progress</h3>
+                    <p>Keep an eye on your journey with our easy-to-use dashboard, keeping your points and rewards in view.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Voices From the Future</h2>
+            <div class="testimonial">
+                <p>"The Rewards Radar platform has completely transformed my shopping experience. It's easy, intuitive, and rewarding."</p>
+                <p class="customer-name">- Future Shopper</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Step into the Future?</h2>
+            <p>Sign up or log in now to start your journey.</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button">Sign Up</a>
+                <span class="or">or</span>
+                <a href="#" class="cta-button">Log In</a>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

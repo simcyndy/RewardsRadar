@@ -1,0 +1,12 @@
+<!-- subscribe.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Subscribe to Reward Tier</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Subscribe</button>
+  </form>
+{% endblock %}

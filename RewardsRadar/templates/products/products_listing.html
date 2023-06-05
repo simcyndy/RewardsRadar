@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script src="https://js.squareupsandbox.com/v2/paymentform"></script>
+  <h2>Available Products</h2>
+  <div class="product-list">
+    {% for product in products %}
+      <div class="product-item">
+        <img src="https://source.unsplash.com/500x500/?product" alt="{{ product.name }}" class="product-image">
+        <h3 class="product-name">{{ product.name }}</h3>
+        <p class="product-description">{{ product.description }}</p>
+        <p class="product-price">${{ product.price }}</p>
+        <a href="{% url 'product_purchase_confirmation' product_id=product.id %}" class="buy-button">Buy Now</a>
+
+
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

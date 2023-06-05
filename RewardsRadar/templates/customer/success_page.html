@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Payment Successful</h2>
+  <p>Thank you for your purchase, {{ customer.name }}!</p>
+  <p>You've earned {{ points_earned }} points.</p>
+  <p>Your total points: {{ customer.points }}</p>
+  <p>Continue shopping or explore other features of our app.</p>
+{% endblock %}

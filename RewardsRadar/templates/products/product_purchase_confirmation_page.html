@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Product Confirmation</h2>
+  <p>Thank you for purchasing the product.</p>
+  
+  <h3>Payment Details</h3>
+  <div id="payment-form-container"></div>
+  
+  <form id="payment-form" method="post" action="{% url 'process_payment' product_id=product.id %}">
+    {% csrf_token %}
+    <!-- Hidden input field for the nonce -->
+    <input type="hidden" id="payment-nonce" name="payment_nonce">
+
+    <!-- Submit button -->
+    <button type="submit">Submit Payment</button>
+  </form>
+
+  <script src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+  <script>
+    async function initializeCard(payments) {
+      const card = await payments.card();
+      await card.attach('#payment-form-container');
+      return card;
+    }
+
+    document.addEventListener('DOMContentLoaded', async function() {
+      const payments = Square.payments('sandbox-sq0idb-3x6u65AGieLRFdkxyeQBXw', 'LEDT0KBMQZ6EY');
+      const card = await initializeCard(payments);
+      
+      const formElement = document.getElementById('payment-form');
+      formElement.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        const result = await card.tokenize();
+        if (result.status === 'OK') {
+          document.getElementById('payment-nonce').value = result.token;
+          formElement.submit();
+        } else {
+          console.error(result.errors);
+        }
+      });
+    });
+  </script>
+{% endblock %}

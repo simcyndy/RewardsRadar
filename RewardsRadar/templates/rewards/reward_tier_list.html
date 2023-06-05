@@ -1,0 +1,14 @@
+<!-- reward_tier_list.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Reward Tiers</h2>
+  <ul>
+    {% for reward_tier in reward_tiers %}
+      <li>{{ reward_tier.name }} - {{ reward_tier.price }}</li>
+    {% empty %}
+      <li>No reward tiers available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

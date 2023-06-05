@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards Radar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <!-- Add your other CSS and JavaScript links here -->
+    <style>
+        body {
+            background: linear-gradient(90deg, #020024 0%, #090979 35%, #00d4ff 100%);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            height: 100vh;
+            margin: 0;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        header {
+            padding: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            color: #00d4ff;
+        }
+
+        main {
+            text-align: center;
+            margin-top: 15%;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Add your navigation links here -->
+            <a href="#">Home</a>
+            <a href="#">Profile</a>
+            <a href="#">Rewards</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Content of individual pages will be rendered here -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <!-- Add your footer content here -->
+        <p>&copy; 2023 Rewards Radar</p>
+    </footer>
+</body>
+</html>

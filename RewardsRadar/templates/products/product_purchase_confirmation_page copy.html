@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Product Confirmation</h2>
+  <p>Thank you for purchasing the product.</p>
+  
+  <h3>Payment Details</h3>
+  <div id="payment-form-container">
+    <form id="payment-form">
+      <div id="card-container"></div>
+      <button id="card-button" type="button">Pay $1.00</button>
+    </form>
+    <div id="payment-status-container"></div>
+  </div>
+
+  <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
+  <script>
+    const appId = 'sq0idb-3x6u65AGieLRFdkxyeQBXwD';
+    const locationId = 'LEDT0KBMQZ6EY';
+
+    async function initializeCard(payments) {
+      const card = await payments.card();
+      await card.attach('#card-container');
+      return card;
+    }
+
+    document.addEventListener('DOMContentLoaded', async function () {
+      if (!window.Square) {
+        throw new Error('Square.js failed to load properly');
+      }
+      const payments = window.Square.payments(appId, locationId);
+      let card;
+      try {
+        card = await initializeCard(payments);
+      } catch (e) {
+        console.error('Initializing Card failed', e);
+        return;
+      }
+
+      // Step 5.2: Create card payment
+      const cardButton = document.getElementById('card-button');
+      const paymentStatusContainer = document.getElementById('payment-status-container');
+      cardButton.addEventListener('click', async function () {
+        try {
+          const result = await payments.createPayment({
+            source: card,
+            amount: 100, // The amount in cents (e.g., $1.00 = 100 cents)
+            currency: 'USD',
+          });
+          // Handle the payment result and display the status to the user
+          if (result.status === 'SUCCESS') {
+            paymentStatusContainer.textContent = 'Payment successful!';
+          } else {
+            paymentStatusContainer.textContent = 'Payment failed!';
+          }
+        } catch (error) {
+          console.error('Payment failed', error);
+          paymentStatusContainer.textContent = 'Payment failed!';
+        }
+      });
+    });
+  </script>
+{% endblock %}
