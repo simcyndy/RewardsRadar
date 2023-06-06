@@ -12,7 +12,7 @@ def track_purchase(customer_id, purchase_amount):
         'location_id': 'LEDT0KBMQZ6EY',
         'customer_id': customer_id,
         'amount_money': {
-            'amount': int(purchase_amount) * 100,  # Square expects the amount in cents
+            'amount': int(purchase_amount) * 100,
             'currency': 'USD',
         },
     }
