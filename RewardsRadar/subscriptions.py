@@ -16,12 +16,11 @@ SQUARE_SUBSCRIPTION_PLAN_IDS = {
 }
 
 class UserProfile(models.Model):
-    # ...
+   
 
     square_subscription_id = models.CharField(max_length=255, null=True)
 
     def update_tier(self):
-        # ...
 
         # Update the user's subscription in Square
         if self.tier is not None:
